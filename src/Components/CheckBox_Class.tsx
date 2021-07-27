@@ -21,4 +21,3 @@ export class CheckBoxSex extends React.Component {
     }
 }
 
-// export default CheckBoxSex;

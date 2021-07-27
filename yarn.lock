@@ -7630,6 +7630,23 @@
   "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   "version" "1.0.4"
 
+"mobx-react-lite@^3.2.0":
+  "integrity" "sha1-Mx1zZaawUzeN/pwIcxW05Bxd9p8="
+  "resolved" "https://registry.npm.taobao.org/mobx-react-lite/download/mobx-react-lite-3.2.0.tgz"
+  "version" "3.2.0"
+
+"mobx-react@^7.2.0":
+  "integrity" "sha1-JB6SXpY7uDox0mn2X583njfsuus="
+  "resolved" "https://registry.nlark.com/mobx-react/download/mobx-react-7.2.0.tgz"
+  "version" "7.2.0"
+  dependencies:
+    "mobx-react-lite" "^3.2.0"
+
+"mobx@^6.1.0", "mobx@^6.3.2":
+  "integrity" "sha1-ElWQlh9wKlcsE5q2k5K+pBbS5Rs="
+  "resolved" "https://registry.nlark.com/mobx/download/mobx-6.3.2.tgz"
+  "version" "6.3.2"
+
 "move-concurrently@^1.0.1":
   "integrity" "sha1-viwAX9oy4LKa8fBdfEszIUxwH5I="
   "resolved" "https://registry.npmjs.org/move-concurrently/-/move-concurrently-1.0.1.tgz"
@@ -9473,7 +9490,7 @@
   optionalDependencies:
     "fsevents" "^2.1.3"
 
-"react@*", "react@^17.0.2", "react@>= 16", "react@>=16.8.0 <18.0.0", "react@17.0.2":
+"react@*", "react@^16.8.0 || ^17", "react@^17.0.2", "react@>= 16", "react@>=16.8.0 <18.0.0", "react@17.0.2":
   "integrity" "sha1-0LXMUW0p6z7uOD91tihkz7aAADc="
   "resolved" "https://registry.nlark.com/react/download/react-17.0.2.tgz?cache=0&sync_timestamp=1627056948852&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact%2Fdownload%2Freact-17.0.2.tgz"
   "version" "17.0.2"
