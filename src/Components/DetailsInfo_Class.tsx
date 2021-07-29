@@ -13,16 +13,17 @@ interface DetailsInfoProps {
 export class DetailsInfo extends React.Component<DetailsInfoProps, {}> {
 
     public render() {
+        console.log("DetailsInfo render ")
         let teams = this.props.pageStore?.getTeamInfoArr;       
         return (
             <Stack>
                 {
                     teams?.map((teamInfo) => (
-                        <Stack>
+                        <Stack key={teamInfo.TeamName}>
                             <Text variant={"xLarge"}>{teamInfo.TeamName}</Text>
                             {
                                 teamInfo.Persons.map((personInfo) => (
-                                    <Stack>
+                                    <Stack key={personInfo.Name}>
                                         {personInfo.Name + '-' + personInfo.Sex}
                                     </Stack>
                                 ))

@@ -3,8 +3,9 @@ import { action, computed, makeObservable, observable } from 'mobx';
 
 export class PageStore {
 
-    @observable public loadingStauts: boolean = false;
-    @observable public infoArray: PersonInfo[] = new Array<PersonInfo>();;
+    @observable public loadingStatus: boolean = false;
+    @observable public infoArray: PersonInfo[] = new Array<PersonInfo>();
+    @observable public filter: Set<String> = new Set(["female", "male"]);
 
     constructor() {
         makeObservable(this);
@@ -15,10 +16,12 @@ export class PageStore {
         let teamInfoArray: TeamInfo[] = new Array<TeamInfo>();
         let teamInfoMap: Map<String, PersonInfo[]> = new Map();
         this.infoArray.forEach((personInfo) => {
-            if (!teamInfoMap.has(personInfo.Team)) {
-                teamInfoMap.set(personInfo.Team, new Array<PersonInfo>());
+            if (this.filter.has(personInfo.Sex)) {
+                if (!teamInfoMap.has(personInfo.Team)) {
+                    teamInfoMap.set(personInfo.Team, new Array<PersonInfo>());
+                }
+                teamInfoMap.get(personInfo.Team)?.push(personInfo);
             }
-            teamInfoMap.get(personInfo.Team)?.push(personInfo);
         });
 
         teamInfoMap.forEach((personArr, teamName) => {
@@ -33,7 +36,7 @@ export class PageStore {
     @action
     public async queryData() {
         let [result1] = await Promise.all([this.queryPersonInfo()]);
-        this.loadingStauts = true;
+        this.loadingStatus = true;
         return result1;
     }
 
@@ -54,5 +57,14 @@ export class PageStore {
         return result;
     }
 
+    @action
+    public changeFilter(sex: string, actionType: boolean | undefined) {
+        if (actionType) {
+            this.filter.add(sex);
+        } else {
+            this.filter.delete(sex);
+        }
+        console.log(actionType)
+    }
 
 }
